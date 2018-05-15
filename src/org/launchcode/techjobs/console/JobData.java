@@ -75,6 +75,8 @@ public class JobData {
         for (HashMap<String, String> row : allJobs) {
 
             String aValue = row.get(column);
+            aValue = aValue.toLowerCase();
+            value = value.toLowerCase();
 
             if (aValue.contains(value)) {
                 jobs.add(row);
@@ -92,7 +94,10 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-            if (row.containsValue(value)) { //This seems to only get the value if it's exactly equal to the input!
+            String currentJob = row.toString();
+            currentJob = currentJob.toLowerCase();
+            value = value.toLowerCase();
+            if (currentJob.contains(value)) {
                 jobs.add(row);
                 continue;
             }
